@@ -40,6 +40,7 @@ public class Repository {
         }
     }
 
+
     public void selectB(int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(
                 "SELECT*FROM book WHERE id = ?;"
