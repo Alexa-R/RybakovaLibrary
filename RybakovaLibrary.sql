@@ -2,7 +2,7 @@ create database rybakovaLibrary;
 
 use rybakovaLibrary;
 
-create table book (
+create table book(
 	id int auto_increment primary key,
     title varchar(63) not null,
     author varchar(63)

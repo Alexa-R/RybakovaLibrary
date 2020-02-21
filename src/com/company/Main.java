@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -47,10 +46,9 @@ public class Main {
                         "\n      E - to exit");
                 input = scan.nextLine();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             System.err.println("SQLException");
+            e.printStackTrace();
         }
     }
 
@@ -65,7 +63,7 @@ public class Main {
         repository.selectB(id);
     }
 
-    private static void getBook() throws IOException, SQLException {
+    private static void getBook() throws SQLException {
 
         System.out.println("Enter id");
         Scanner scan = new Scanner(System.in);
@@ -73,7 +71,7 @@ public class Main {
         repository.getB(id);
         System.out.println("The book is deleted.");
     }
-    private static void returnBook() throws IOException, SQLException {
+    private static void returnBook() throws SQLException {
         repository.returnB();
 
     }

@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -23,16 +22,6 @@ public class Repository {
         connection = DriverManager.getConnection(DATABASE_URL, USER, PASS);
     }
 
-    /*public void create(Book book) throws SQLException {
-
-        PreparedStatement statement = connection.prepareStatement(
-                "insert into employees value (null, ?, ?, ?);"
-        );
-        statement.setString(1, book.getTitle());
-        statement.setString(2, book.getAuthor());
-        statement.executeUpdate();
-    }*/
-
     public void showB() throws SQLException {
 
         Statement statement = connection.createStatement();
@@ -49,9 +38,6 @@ public class Repository {
             System.out.println("Title: " + title);
             System.out.println("Author: " + author);
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
     }
 
     public void selectB(int id) throws SQLException {
@@ -69,12 +55,9 @@ public class Repository {
             System.out.println("Title: " + title);
             System.out.println("Author: " + author);
         }
-        resultSet.close();
-        statement.close();
-        connection.close();
     }
 
-    public void getB(int id) throws IOException, SQLException {
+    public void getB(int id) throws SQLException {
 
         PreparedStatement statement = connection.prepareStatement(
                 "delete from book where id = ?;"
@@ -85,7 +68,7 @@ public class Repository {
     }
 
     public void returnB()
-            throws IOException, SQLException {
+            throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "insert into book values(null, ?,?);"
         );
